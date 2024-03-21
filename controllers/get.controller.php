@@ -56,6 +56,36 @@ class GetController{
 
     }
 
+        //PETICIÓN GET BUSCADOR ENTRE TABLAS RELACIONADAS
+
+        static public function getRelDataSearch($rel, $type, $select, $linkTo, $search, $orderBy, $orderMode, $startAt, $endAt){
+
+            $response = GetModel::getRelDataSearch($rel, $type, $select, $linkTo, $search, $orderBy, $orderMode, $startAt, $endAt);
+            $return = new GetController();
+            $return->fncResponse($response);
+            
+        }
+
+        //PETICIÓN GET PARA SELECCIÓN DE RANGOS
+
+        static public function getDataRange($table, $select, $linkTo, $between1, $between2, $orderBy, $orderMode, $startAt, $endAt, $filterTo, $inTo){
+
+            $response = GetModel::getDataRange($table, $select, $linkTo, $between1, $between2, $orderBy, $orderMode, $startAt, $endAt, $filterTo, $inTo);
+            $return = new GetController();
+            $return->fncResponse($response);
+                    
+        }
+
+        //PETICIÓN GET PARA SELECCIÓN DE RANGOS CON RELACIONES
+
+        static public function getRelDataRange($rel, $type, $select, $linkTo, $between1, $between2, $orderBy, $orderMode, $startAt, $endAt, $filterTo, $inTo){
+
+            $response = GetModel::getRelDataRange($rel, $type, $select, $linkTo, $between1, $between2, $orderBy, $orderMode, $startAt, $endAt, $filterTo, $inTo);
+            $return = new GetController();
+            $return->fncResponse($response);
+                            
+        }
+
     // RESPUESTA DEL CONTROLADOR
 
     public function fncResponse($response){

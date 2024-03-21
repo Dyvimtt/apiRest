@@ -271,6 +271,181 @@ class GetModel{
 
         return $stmt -> fetchAll(PDO::FETCH_CLASS);
     }
+
+     // PETICIONES GET BUSCADOR CON TABLAS RELACIONADAS
+
+     static public function getRelDataSearch($rel, $type, $select, $linkTo, $search, $orderBy, $orderMode, $startAt, $endAt){
+
+        /* ----ORGANIZAMOS LOS FILTROS---- */
+
+        $linkToArray = explode(",",$linkTo); // Separamos las columnas del WHERE mediante una ,
+        $searchArray = explode("_",$search); // Separamos los valores de las columnas a buscar por un guión bajo _
+        $linkToText ="";
+
+        if(count($linkToArray)>1){
+            foreach ($linkToArray as $key => $value) {
+                if($key > 0){
+                    $linkToText .= "AND ".$value." = :".$value." ";
+                }
+            }
+        }
+
+
+        /* ----ORGANIZAMOS LAS RELACIONES---- */
+
+        $relArray = explode(",",$rel); // Separamos tablas de la URL mediante coma
+        $typeArray = explode(",",$type); // Separamos tipos de la URL mediante coma
+        $innerJoinText ="";
+
+        if(count($relArray)>1){
+
+            foreach ($relArray as $key => $value) {
+
+                if($key > 0){
+
+                    $innerJoinText .= "INNER JOIN ".$value." ON ".$relArray[0].".id_".$typeArray[$key]."_".$typeArray[0] ." = ".$value.".id_".$typeArray[$key]." ";
+                }
+            }
+        
+        // Sin ordenar ni limitar datos
+            
+        $sql = "SELECT $select FROM $relArray[0] $innerJoinText WHERE $linkToArray[0] LIKE '%$searchArray[0]%' $linkToText";
+
+        //Sentencia pasa ordenar pero no limitar
+
+        if($orderBy != null && $orderMode != null && $startAt == null && $endAt == null){
+            $sql = "SELECT $select FROM $relArray[0] $innerJoinText WHERE $linkToArray[0] LIKE '%$searchArray[0]%' $linkToText ORDER BY $orderBy $orderMode";
+        }
+        
+        //Sentencia pasa ordenar y limitar
+
+        if($orderBy != null && $orderMode != null && $startAt != null && $endAt != null){
+            $sql = "SELECT $select FROM $relArray[0] $innerJoinText WHERE $linkToArray[0] LIKE '%$searchArray[0]%' $linkToText ORDER BY $orderBy $orderMode LIMIT $startAt, $endAt";
+        }
+
+        // Sentencia solo para limitar
+
+        if($orderBy == null && $orderMode == null && $startAt != null && $endAt != null){
+            $sql = "SELECT $select FROM $relArray[0] $innerJoinText WHERE $linkToArray[0] LIKE '%$searchArray[0]%' $linkToText LIMIT $startAt, $endAt";
+        }
+
+        $stmt =  Connection::connect()->prepare($sql);
+
+        foreach ($linkToArray as $key => $value){
+
+            if($key > 0){
+
+                $stmt -> bindParam(":".$value, $searchArray[$key], PDO::PARAM_STR);
+
+            }
+        }
+
+        $stmt -> execute();
+
+
+
+        // Utilizamos PDO FETCH_CLASS como argumente para que nos devuelva objetos en vez de indices que seria sin poner ningún argumento a fetchAll
+        return $stmt -> fetchAll(PDO::FETCH_CLASS);
+
+        }else{
+            return null;
+        }
+    }
+    //PETICIÓN GET PARA SELECCIÓN DE RANGOS
+
+    static public function getDataRange($table, $select, $linkTo, $between1, $between2, $orderBy, $orderMode, $startAt, $endAt, $filterTo, $inTo){
+
+        $filter = "";
+
+        if($filterTo != null && $inTo != null){
+            $filter = "AND ".$filterTo." IN (".$inTo.")";
+        }
+        //Sin ordenar ni limitar datos
+
+        $sql = "SELECT $select FROM $table WHERE $linkTo BETWEEN '$between1' AND '$between2' $filter";
+
+        //Sentencia pasa ordenar pero no limitar
+
+        if($orderBy != null && $orderMode != null && $startAt == null && $endAt == null){
+            $sql = "SELECT $select FROM $table WHERE $linkTo BETWEEN '$between1' AND '$between2' $filter ORDER BY $orderBy $orderMode";
+        }
+        
+        //Sentencia pasa ordenar y limitar
+
+        if($orderBy != null && $orderMode != null && $startAt != null && $endAt != null){
+            $sql = "SELECT $select FROM $table WHERE $linkTo BETWEEN '$between1' AND '$between2' $filter ORDER BY $orderBy $orderMode LIMIT $startAt, $endAt";
+        }
+
+        // Sentencia solo para limitar
+
+        if($orderBy == null && $orderMode == null && $startAt != null && $endAt != null){
+            $sql = "SELECT $select FROM $table WHERE $linkTo BETWEEN '$between1' AND '$between2' $filter LIMIT $startAt, $endAt";
+        }
+
+        $stmt =  Connection::connect()->prepare($sql);
+
+        $stmt -> execute();
+
+        // Utilizamos PDO FETCH_CLASS como argumente para que nos devuelva objetos en vez de indices que seria sin poner ningún argumento a fetchAll
+        return $stmt -> fetchAll(PDO::FETCH_CLASS);
+                        
+    }
+        //PETICIÓN GET PARA SELECCIÓN DE RANGOS CON RELACIONES
+
+        static public function getRelDataRange($rel, $type, $select, $linkTo, $between1, $between2, $orderBy, $orderMode, $startAt, $endAt, $filterTo, $inTo){
+
+            $filter = "";
+    
+            if($filterTo != null && $inTo != null){
+                $filter = "AND ".$filterTo." IN (".$inTo.")";
+            }
+
+            $relArray = explode(",",$rel); // Separamos tablas de la URL mediante coma
+            $typeArray = explode(",",$type); // Separamos tipos de la URL mediante coma
+            $innerJoinText ="";
+    
+            if(count($relArray)>1){
+    
+                foreach ($relArray as $key => $value) {
+    
+                    if($key > 0){
+    
+                        $innerJoinText .= "INNER JOIN ".$value." ON ".$relArray[0].".id_".$typeArray[$key]."_".$typeArray[0] ." = ".$value.".id_".$typeArray[$key]." ";
+                    }
+            }
+            //Sin ordenar ni limitar datos
+    
+            $sql = "SELECT $select FROM $relArray[0] $innerJoinText WHERE $linkTo BETWEEN '$between1' AND '$between2' $filter";
+    
+            //Sentencia pasa ordenar pero no limitar
+    
+            if($orderBy != null && $orderMode != null && $startAt == null && $endAt == null){
+                $sql = "SELECT $select FROM $relArray[0] $innerJoinText WHERE $linkTo BETWEEN '$between1' AND '$between2' $filter ORDER BY $orderBy $orderMode";
+            }
+            
+            //Sentencia pasa ordenar y limitar
+    
+            if($orderBy != null && $orderMode != null && $startAt != null && $endAt != null){
+                $sql = "SELECT $select FROM $relArray[0] $innerJoinText WHERE $linkTo BETWEEN '$between1' AND '$between2' $filter ORDER BY $orderBy $orderMode LIMIT $startAt, $endAt";
+            }
+    
+            // Sentencia solo para limitar
+    
+            if($orderBy == null && $orderMode == null && $startAt != null && $endAt != null){
+                $sql = "SELECT $select FROM $relArray[0] $innerJoinText WHERE $linkTo BETWEEN '$between1' AND '$between2' $filter LIMIT $startAt, $endAt";
+            }
+    
+            $stmt =  Connection::connect()->prepare($sql);
+    
+            $stmt -> execute();
+    
+            // Utilizamos PDO FETCH_CLASS como argumente para que nos devuelva objetos en vez de indices que seria sin poner ningún argumento a fetchAll
+            return $stmt -> fetchAll(PDO::FETCH_CLASS);
+                            
+        }else{
+            return null;
+        }
+    }
 }
 
 ?>

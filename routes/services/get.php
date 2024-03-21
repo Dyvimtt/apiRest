@@ -25,6 +25,11 @@
     $startAt = $_GET["startAt"] ?? null;
     $endAt = $_GET["endAt"] ?? null;
 
+    //Capturamos filterTo y inTo, en caso de no estar los dejamos en nulo.
+
+    $filterTo = $_GET["filterTo"] ?? null;
+    $inTo = $_GET["inTo"] ?? null;
+
     // Al hacer los métodos de las clases publicos no hace falta crear un objeto llamamos directamente a la función, para poner un segundo parametro utilizar el símbolo %.
     // apirest.com/libro?select=id,titulo"
 
@@ -50,8 +55,27 @@
         $response -> getRelDataFilter($_GET["rel"], $_GET["type"], $select, $_GET['linkTo'], $_GET["equalTo"], $orderBy, $orderMode, $startAt, $endAt);
 
     // PETICIÓN GET para el buscador sin relación
-    }else if(isset($_GET["linkTo"]) && isset($_GET["search"])){
+    }else if(!isset($_GET["rel"]) && !isset($_GET["type"]) && isset($_GET["linkTo"]) && isset($_GET["search"])){
         $response -> getDataSearch($table, $select, $_GET["linkTo"], $_GET["search"], $orderBy, $orderMode, $startAt, $endAt);
+    
+    // PETICIÓN GET para el buscador con relaciones
+
+    }else if(isset($_GET["rel"]) && isset($_GET["type"]) && $table == "relations" && isset($_GET["linkTo"]) && isset($_GET["search"])){
+
+        $response -> getRelDataSearch($_GET["rel"], $_GET["type"], $select, $_GET['linkTo'], $_GET["search"], $orderBy, $orderMode, $startAt, $endAt);
+
+    // PETICIÓN GET para selección de rango BETWEEN
+
+    }else if(isset($_GET["linkTo"]) && isset($_GET["between1"]) && isset($_GET["between2"]) && !isset($_GET["rel"]) && !isset($_GET["type"])){
+
+    $response -> getDataRange($table, $select, $_GET["linkTo"], $_GET["between1"], $_GET['between2'], $orderBy, $orderMode, $startAt, $endAt, $filterTo, $inTo);
+
+    // PETICION GET con relaciones
+
+    }else if(isset($_GET["rel"]) && isset($_GET["type"]) && $table == "relations" && isset($_GET["linkTo"]) && isset($_GET["between1"]) && isset($_GET["between2"])){
+
+    $response -> getRelDataRange($select, $_GET["rel"] ,$_GET["type"], $_GET["linkTo"], $_GET["between1"], $_GET['between2'], $orderBy, $orderMode, $startAt, $endAt, $filterTo, $inTo);
+    
     }else{
 
         //PETICIÓN GET SIN FILTRO

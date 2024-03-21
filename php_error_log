@@ -132,3 +132,103 @@ Stack trace:
 #5 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
 #6 {main}
   thrown in F:\xampp\htdocs\apirest\models\get.model.php on line 269
+[21-Mar-2024 18:07:12 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'libros.relations' doesn't exist in F:\xampp\htdocs\apirest\models\get.model.php:269
+Stack trace:
+#0 F:\xampp\htdocs\apirest\models\get.model.php(269): PDOStatement->execute()
+#1 F:\xampp\htdocs\apirest\controllers\get.controller.php(53): GetModel::getDataSearch('relations', '*', 'titulo', 'hobb', NULL, NULL, NULL, NULL)
+#2 F:\xampp\htdocs\apirest\routes\services\get.php(54): GetController::getDataSearch('relations', '*', 'titulo', 'hobb', NULL, NULL, NULL, NULL)
+#3 F:\xampp\htdocs\apirest\routes\routes.php(31): include('F:\\xampp\\htdocs...')
+#4 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#5 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#6 {main}
+  thrown in F:\xampp\htdocs\apirest\models\get.model.php on line 269
+[21-Mar-2024 18:07:46 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'libros.relations' doesn't exist in F:\xampp\htdocs\apirest\models\get.model.php:269
+Stack trace:
+#0 F:\xampp\htdocs\apirest\models\get.model.php(269): PDOStatement->execute()
+#1 F:\xampp\htdocs\apirest\controllers\get.controller.php(53): GetModel::getDataSearch('relations', '*', 'nombre', 'hobb', NULL, NULL, NULL, NULL)
+#2 F:\xampp\htdocs\apirest\routes\services\get.php(54): GetController::getDataSearch('relations', '*', 'nombre', 'hobb', NULL, NULL, NULL, NULL)
+#3 F:\xampp\htdocs\apirest\routes\routes.php(31): include('F:\\xampp\\htdocs...')
+#4 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#5 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#6 {main}
+  thrown in F:\xampp\htdocs\apirest\models\get.model.php on line 269
+[21-Mar-2024 18:07:53 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'libros.relations' doesn't exist in F:\xampp\htdocs\apirest\models\get.model.php:269
+Stack trace:
+#0 F:\xampp\htdocs\apirest\models\get.model.php(269): PDOStatement->execute()
+#1 F:\xampp\htdocs\apirest\controllers\get.controller.php(53): GetModel::getDataSearch('relations', '*', 'nombre', 'isa', NULL, NULL, NULL, NULL)
+#2 F:\xampp\htdocs\apirest\routes\services\get.php(54): GetController::getDataSearch('relations', '*', 'nombre', 'isa', NULL, NULL, NULL, NULL)
+#3 F:\xampp\htdocs\apirest\routes\routes.php(31): include('F:\\xampp\\htdocs...')
+#4 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#5 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#6 {main}
+  thrown in F:\xampp\htdocs\apirest\models\get.model.php on line 269
+[21-Mar-2024 18:09:45 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'libros.relations' doesn't exist in F:\xampp\htdocs\apirest\models\get.model.php:269
+Stack trace:
+#0 F:\xampp\htdocs\apirest\models\get.model.php(269): PDOStatement->execute()
+#1 F:\xampp\htdocs\apirest\controllers\get.controller.php(53): GetModel::getDataSearch('relations', '*', 'titulo', 'isa', NULL, NULL, NULL, NULL)
+#2 F:\xampp\htdocs\apirest\routes\services\get.php(54): GetController::getDataSearch('relations', '*', 'titulo', 'isa', NULL, NULL, NULL, NULL)
+#3 F:\xampp\htdocs\apirest\routes\routes.php(31): include('F:\\xampp\\htdocs...')
+#4 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#5 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#6 {main}
+  thrown in F:\xampp\htdocs\apirest\models\get.model.php on line 269
+[21-Mar-2024 18:12:23 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'libros.relations' doesn't exist in F:\xampp\htdocs\apirest\models\get.model.php:269
+Stack trace:
+#0 F:\xampp\htdocs\apirest\models\get.model.php(269): PDOStatement->execute()
+#1 F:\xampp\htdocs\apirest\controllers\get.controller.php(53): GetModel::getDataSearch('relations', '*', 'nombre', 'isa', NULL, NULL, NULL, NULL)
+#2 F:\xampp\htdocs\apirest\routes\services\get.php(54): GetController::getDataSearch('relations', '*', 'nombre', 'isa', NULL, NULL, NULL, NULL)
+#3 F:\xampp\htdocs\apirest\routes\routes.php(31): include('F:\\xampp\\htdocs...')
+#4 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#5 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#6 {main}
+  thrown in F:\xampp\htdocs\apirest\models\get.model.php on line 269
+[21-Mar-2024 19:45:59 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'libros.relations' doesn't exist in F:\xampp\htdocs\apirest\models\get.model.php:387
+Stack trace:
+#0 F:\xampp\htdocs\apirest\models\get.model.php(387): PDOStatement->execute()
+#1 F:\xampp\htdocs\apirest\controllers\get.controller.php(73): GetModel::getDataRange('relations', '*', 'date_created_pr...', '2021-01-01', '2021-04-30', NULL, NULL, NULL, NULL, 'id', '1,2')
+#2 F:\xampp\htdocs\apirest\routes\services\get.php(71): GetController::getDataRange('relations', '*', 'date_created_pr...', '2021-01-01', '2021-04-30', NULL, NULL, NULL, NULL, 'id', '1,2')
+#3 F:\xampp\htdocs\apirest\routes\routes.php(31): include('F:\\xampp\\htdocs...')
+#4 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#5 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#6 {main}
+  thrown in F:\xampp\htdocs\apirest\models\get.model.php on line 387
+[21-Mar-2024 19:46:00 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'favicon.ico' doesn't exist in F:\xampp\htdocs\apirest\models\get.model.php:38
+Stack trace:
+#0 F:\xampp\htdocs\apirest\models\get.model.php(38): PDOStatement->execute()
+#1 F:\xampp\htdocs\apirest\controllers\get.controller.php(13): GetModel::getData('favicon.ico', '*', NULL, NULL, NULL, NULL)
+#2 F:\xampp\htdocs\apirest\routes\services\get.php(77): GetController::getData('favicon.ico', '*', NULL, NULL, NULL, NULL)
+#3 F:\xampp\htdocs\apirest\routes\routes.php(31): include('F:\\xampp\\htdocs...')
+#4 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#5 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#6 {main}
+  thrown in F:\xampp\htdocs\apirest\models\get.model.php on line 38
+[21-Mar-2024 19:46:06 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'date_created_product' in 'where clause' in F:\xampp\htdocs\apirest\models\get.model.php:387
+Stack trace:
+#0 F:\xampp\htdocs\apirest\models\get.model.php(387): PDOStatement->execute()
+#1 F:\xampp\htdocs\apirest\controllers\get.controller.php(73): GetModel::getDataRange('libro', '*', 'date_created_pr...', '2021-01-01', '2021-04-30', NULL, NULL, NULL, NULL, 'id', '1,2')
+#2 F:\xampp\htdocs\apirest\routes\services\get.php(71): GetController::getDataRange('libro', '*', 'date_created_pr...', '2021-01-01', '2021-04-30', NULL, NULL, NULL, NULL, 'id', '1,2')
+#3 F:\xampp\htdocs\apirest\routes\routes.php(31): include('F:\\xampp\\htdocs...')
+#4 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#5 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#6 {main}
+  thrown in F:\xampp\htdocs\apirest\models\get.model.php on line 387
+[21-Mar-2024 19:46:07 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'favicon.ico' doesn't exist in F:\xampp\htdocs\apirest\models\get.model.php:38
+Stack trace:
+#0 F:\xampp\htdocs\apirest\models\get.model.php(38): PDOStatement->execute()
+#1 F:\xampp\htdocs\apirest\controllers\get.controller.php(13): GetModel::getData('favicon.ico', '*', NULL, NULL, NULL, NULL)
+#2 F:\xampp\htdocs\apirest\routes\services\get.php(77): GetController::getData('favicon.ico', '*', NULL, NULL, NULL, NULL)
+#3 F:\xampp\htdocs\apirest\routes\routes.php(31): include('F:\\xampp\\htdocs...')
+#4 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#5 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#6 {main}
+  thrown in F:\xampp\htdocs\apirest\models\get.model.php on line 38
+[21-Mar-2024 19:46:16 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'favicon.ico' doesn't exist in F:\xampp\htdocs\apirest\models\get.model.php:38
+Stack trace:
+#0 F:\xampp\htdocs\apirest\models\get.model.php(38): PDOStatement->execute()
+#1 F:\xampp\htdocs\apirest\controllers\get.controller.php(13): GetModel::getData('favicon.ico', '*', NULL, NULL, NULL, NULL)
+#2 F:\xampp\htdocs\apirest\routes\services\get.php(77): GetController::getData('favicon.ico', '*', NULL, NULL, NULL, NULL)
+#3 F:\xampp\htdocs\apirest\routes\routes.php(31): include('F:\\xampp\\htdocs...')
+#4 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#5 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#6 {main}
+  thrown in F:\xampp\htdocs\apirest\models\get.model.php on line 38

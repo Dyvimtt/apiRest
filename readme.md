@@ -104,3 +104,39 @@ Le indicamos las tablas a consultar unidas por una , "libro,autor"
 Le indicamos las columnas que unen ambas tablas para relacionarlas unidas por una ,.
 
 apirest.com/relations?rel=libro,autor&type=autor,autor
+
+### Busquedas con rangos BETWEEN - AND
+
+#### between1 between2 linkTo
+
+Utilizaremos ambos para pasar el rango que queremos consultar, por ejemplo un rango de fechas y linkTo para marcar la tabla donde se aplicará el rango.
+
+apirest.com/libro?select=*&between1=2021-01-01&between2=2021-04-30&linkTo=date_created_product
+
+### Busqueda de rangos con filtros
+
+Tenemos que traer otra tabla para el segundo AND y  el contenido del IN
+
+(En SQL sería SELECT * from libro WHERE date_created BETWEEN '2024-01-01' AND '2024-05-30' AND id IN (1,2,3);)
+
+#### filterTo
+
+Aquí añadimos la tabla con la que filtraremos el resultado
+
+#### inTo
+
+Aquí el resultado a buscar dentro del IN
+
+apirest.com/libro?select=*&between1=2021-01-01&between2=2021-04-30&linkTo=date_created_product&filterTo=id&inTo=1,2
+
+### Busqueda con filtros y relaciones
+
+Añadimos la palabra relations en vez de el nombre de la tabla
+
+apirest.com/relations?
+
+y añadimos de nuevo
+
+#### rel y type
+
+apirest.com/relations?rel=libro,autor&type=autor,autor&select=*&between1=2021-01-01&between2=2021-04-30&linkTo=date_created_product&filterTo=id&inTo=1,2
