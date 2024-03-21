@@ -1,0 +1,134 @@
+[20-Mar-2024 17:42:34 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'autor.id_id_autor' in 'on clause' in F:\xampp\htdocs\apirest\models\get.model.php:139
+Stack trace:
+#0 F:\xampp\htdocs\apirest\models\get.model.php(139): PDOStatement->execute()
+#1 F:\xampp\htdocs\apirest\controllers\get.controller.php(33): GetModel::getRelData('autor,libro', 'autor,id', '*', NULL, NULL, NULL, NULL)
+#2 F:\xampp\htdocs\apirest\routes\services\get.php(44): GetController::getRelData('autor,libro', 'autor,id', '*', NULL, NULL, NULL, NULL)
+#3 F:\xampp\htdocs\apirest\routes\routes.php(31): include('F:\\xampp\\htdocs...')
+#4 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#5 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#6 {main}
+  thrown in F:\xampp\htdocs\apirest\models\get.model.php on line 139
+[20-Mar-2024 17:45:46 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'autor.id_id_autor' in 'on clause' in F:\xampp\htdocs\apirest\models\get.model.php:139
+Stack trace:
+#0 F:\xampp\htdocs\apirest\models\get.model.php(139): PDOStatement->execute()
+#1 F:\xampp\htdocs\apirest\controllers\get.controller.php(33): GetModel::getRelData('autor,libro', 'autor,id', '*', NULL, NULL, NULL, NULL)
+#2 F:\xampp\htdocs\apirest\routes\services\get.php(44): GetController::getRelData('autor,libro', 'autor,id', '*', NULL, NULL, NULL, NULL)
+#3 F:\xampp\htdocs\apirest\routes\routes.php(31): include('F:\\xampp\\htdocs...')
+#4 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#5 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#6 {main}
+  thrown in F:\xampp\htdocs\apirest\models\get.model.php on line 139
+[20-Mar-2024 17:47:31 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'autor.id_id_autor' in 'on clause' in F:\xampp\htdocs\apirest\models\get.model.php:139
+Stack trace:
+#0 F:\xampp\htdocs\apirest\models\get.model.php(139): PDOStatement->execute()
+#1 F:\xampp\htdocs\apirest\controllers\get.controller.php(33): GetModel::getRelData('autor,libro', 'autor,id', '*', NULL, NULL, NULL, NULL)
+#2 F:\xampp\htdocs\apirest\routes\services\get.php(44): GetController::getRelData('autor,libro', 'autor,id', '*', NULL, NULL, NULL, NULL)
+#3 F:\xampp\htdocs\apirest\routes\routes.php(31): include('F:\\xampp\\htdocs...')
+#4 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#5 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#6 {main}
+  thrown in F:\xampp\htdocs\apirest\models\get.model.php on line 139
+[20-Mar-2024 17:47:39 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'autor_id = libro.id_ autor' at line 1 in F:\xampp\htdocs\apirest\models\get.model.php:139
+Stack trace:
+#0 F:\xampp\htdocs\apirest\models\get.model.php(139): PDOStatement->execute()
+#1 F:\xampp\htdocs\apirest\controllers\get.controller.php(33): GetModel::getRelData('autor,libro', 'id, autor', '*', NULL, NULL, NULL, NULL)
+#2 F:\xampp\htdocs\apirest\routes\services\get.php(44): GetController::getRelData('autor,libro', 'id, autor', '*', NULL, NULL, NULL, NULL)
+#3 F:\xampp\htdocs\apirest\routes\routes.php(31): include('F:\\xampp\\htdocs...')
+#4 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#5 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#6 {main}
+  thrown in F:\xampp\htdocs\apirest\models\get.model.php on line 139
+[20-Mar-2024 17:47:51 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'autor_autor = libro.id_ autor' at line 1 in F:\xampp\htdocs\apirest\models\get.model.php:139
+Stack trace:
+#0 F:\xampp\htdocs\apirest\models\get.model.php(139): PDOStatement->execute()
+#1 F:\xampp\htdocs\apirest\controllers\get.controller.php(33): GetModel::getRelData('autor,libro', 'autor, autor', '*', NULL, NULL, NULL, NULL)
+#2 F:\xampp\htdocs\apirest\routes\services\get.php(44): GetController::getRelData('autor,libro', 'autor, autor', '*', NULL, NULL, NULL, NULL)
+#3 F:\xampp\htdocs\apirest\routes\routes.php(31): include('F:\\xampp\\htdocs...')
+#4 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#5 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#6 {main}
+  thrown in F:\xampp\htdocs\apirest\models\get.model.php on line 139
+[20-Mar-2024 17:51:58 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'autor_autor = libro.id_ autor' at line 1 in F:\xampp\htdocs\apirest\models\get.model.php:139
+Stack trace:
+#0 F:\xampp\htdocs\apirest\models\get.model.php(139): PDOStatement->execute()
+#1 F:\xampp\htdocs\apirest\controllers\get.controller.php(33): GetModel::getRelData('autor,libro', 'autor, autor', '*', NULL, NULL, NULL, NULL)
+#2 F:\xampp\htdocs\apirest\routes\services\get.php(44): GetController::getRelData('autor,libro', 'autor, autor', '*', NULL, NULL, NULL, NULL)
+#3 F:\xampp\htdocs\apirest\routes\routes.php(31): include('F:\\xampp\\htdocs...')
+#4 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#5 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#6 {main}
+  thrown in F:\xampp\htdocs\apirest\models\get.model.php on line 139
+[20-Mar-2024 17:52:36 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'autor_id = libro.id_ autor' at line 1 in F:\xampp\htdocs\apirest\models\get.model.php:139
+Stack trace:
+#0 F:\xampp\htdocs\apirest\models\get.model.php(139): PDOStatement->execute()
+#1 F:\xampp\htdocs\apirest\controllers\get.controller.php(33): GetModel::getRelData('autor,libro', 'id, autor', '*', NULL, NULL, NULL, NULL)
+#2 F:\xampp\htdocs\apirest\routes\services\get.php(44): GetController::getRelData('autor,libro', 'id, autor', '*', NULL, NULL, NULL, NULL)
+#3 F:\xampp\htdocs\apirest\routes\routes.php(31): include('F:\\xampp\\htdocs...')
+#4 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#5 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#6 {main}
+  thrown in F:\xampp\htdocs\apirest\models\get.model.php on line 139
+[20-Mar-2024 18:00:08 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'autor.id_autor_id' in 'on clause' in F:\xampp\htdocs\apirest\models\get.model.php:139
+Stack trace:
+#0 F:\xampp\htdocs\apirest\models\get.model.php(139): PDOStatement->execute()
+#1 F:\xampp\htdocs\apirest\controllers\get.controller.php(33): GetModel::getRelData('autor,libro', 'id,autor', '*', NULL, NULL, NULL, NULL)
+#2 F:\xampp\htdocs\apirest\routes\services\get.php(44): GetController::getRelData('autor,libro', 'id,autor', '*', NULL, NULL, NULL, NULL)
+#3 F:\xampp\htdocs\apirest\routes\routes.php(31): include('F:\\xampp\\htdocs...')
+#4 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#5 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#6 {main}
+  thrown in F:\xampp\htdocs\apirest\models\get.model.php on line 139
+[20-Mar-2024 18:01:40 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'autor.id_autor_autor' in 'on clause' in F:\xampp\htdocs\apirest\models\get.model.php:139
+Stack trace:
+#0 F:\xampp\htdocs\apirest\models\get.model.php(139): PDOStatement->execute()
+#1 F:\xampp\htdocs\apirest\controllers\get.controller.php(33): GetModel::getRelData('autor,libro', 'autor,autor', '*', NULL, NULL, NULL, NULL)
+#2 F:\xampp\htdocs\apirest\routes\services\get.php(44): GetController::getRelData('autor,libro', 'autor,autor', '*', NULL, NULL, NULL, NULL)
+#3 F:\xampp\htdocs\apirest\routes\routes.php(31): include('F:\\xampp\\htdocs...')
+#4 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#5 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#6 {main}
+  thrown in F:\xampp\htdocs\apirest\models\get.model.php on line 139
+[20-Mar-2024 18:01:51 Europe/Berlin] PHP Warning:  Undefined array key 1 in F:\xampp\htdocs\apirest\models\get.model.php on line 111
+[20-Mar-2024 18:01:51 Europe/Berlin] PHP Warning:  Undefined array key 1 in F:\xampp\htdocs\apirest\models\get.model.php on line 111
+[20-Mar-2024 18:01:51 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'autor.id__autor' in 'on clause' in F:\xampp\htdocs\apirest\models\get.model.php:139
+Stack trace:
+#0 F:\xampp\htdocs\apirest\models\get.model.php(139): PDOStatement->execute()
+#1 F:\xampp\htdocs\apirest\controllers\get.controller.php(33): GetModel::getRelData('autor,libro', 'autor', '*', NULL, NULL, NULL, NULL)
+#2 F:\xampp\htdocs\apirest\routes\services\get.php(44): GetController::getRelData('autor,libro', 'autor', '*', NULL, NULL, NULL, NULL)
+#3 F:\xampp\htdocs\apirest\routes\routes.php(31): include('F:\\xampp\\htdocs...')
+#4 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#5 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#6 {main}
+  thrown in F:\xampp\htdocs\apirest\models\get.model.php on line 139
+[20-Mar-2024 18:02:50 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'autor.id_autor_autor' in 'on clause' in F:\xampp\htdocs\apirest\models\get.model.php:139
+Stack trace:
+#0 F:\xampp\htdocs\apirest\models\get.model.php(139): PDOStatement->execute()
+#1 F:\xampp\htdocs\apirest\controllers\get.controller.php(33): GetModel::getRelData('autor,libro', 'autor,autor', '*', NULL, NULL, NULL, NULL)
+#2 F:\xampp\htdocs\apirest\routes\services\get.php(44): GetController::getRelData('autor,libro', 'autor,autor', '*', NULL, NULL, NULL, NULL)
+#3 F:\xampp\htdocs\apirest\routes\routes.php(31): include('F:\\xampp\\htdocs...')
+#4 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#5 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#6 {main}
+  thrown in F:\xampp\htdocs\apirest\models\get.model.php on line 139
+[20-Mar-2024 18:05:59 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'autor.id_autor_autor' in 'on clause' in F:\xampp\htdocs\apirest\models\get.model.php:139
+Stack trace:
+#0 F:\xampp\htdocs\apirest\models\get.model.php(139): PDOStatement->execute()
+#1 F:\xampp\htdocs\apirest\controllers\get.controller.php(33): GetModel::getRelData('autor,libro', 'autor,autor', '*', NULL, NULL, NULL, NULL)
+#2 F:\xampp\htdocs\apirest\routes\services\get.php(44): GetController::getRelData('autor,libro', 'autor,autor', '*', NULL, NULL, NULL, NULL)
+#3 F:\xampp\htdocs\apirest\routes\routes.php(31): include('F:\\xampp\\htdocs...')
+#4 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#5 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#6 {main}
+  thrown in F:\xampp\htdocs\apirest\models\get.model.php on line 139
+[20-Mar-2024 19:55:15 Europe/Berlin] PHP Warning:  Undefined variable $keyt in F:\xampp\htdocs\apirest\models\get.model.php on line 262
+[20-Mar-2024 19:55:15 Europe/Berlin] PHP Warning:  Undefined variable $keyt in F:\xampp\htdocs\apirest\models\get.model.php on line 262
+[20-Mar-2024 19:55:15 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':id' at line 1 in F:\xampp\htdocs\apirest\models\get.model.php:269
+Stack trace:
+#0 F:\xampp\htdocs\apirest\models\get.model.php(269): PDOStatement->execute()
+#1 F:\xampp\htdocs\apirest\controllers\get.controller.php(53): GetModel::getDataSearch('libro', '*', 'titulo,id', 'com_1', NULL, NULL, NULL, NULL)
+#2 F:\xampp\htdocs\apirest\routes\services\get.php(54): GetController::getDataSearch('libro', '*', 'titulo,id', 'com_1', NULL, NULL, NULL, NULL)
+#3 F:\xampp\htdocs\apirest\routes\routes.php(31): include('F:\\xampp\\htdocs...')
+#4 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#5 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#6 {main}
+  thrown in F:\xampp\htdocs\apirest\models\get.model.php on line 269
