@@ -232,3 +232,74 @@ Stack trace:
 #5 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
 #6 {main}
   thrown in F:\xampp\htdocs\apirest\models\get.model.php on line 38
+[28-Mar-2024 09:47:33 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Connection::getClumnsData() in F:\xampp\htdocs\apirest\models\get.model.php:14
+Stack trace:
+#0 F:\xampp\htdocs\apirest\controllers\get.controller.php(13): GetModel::getData('libra', '*', NULL, NULL, NULL, NULL)
+#1 F:\xampp\htdocs\apirest\routes\services\get.php(83): GetController::getData('libra', '*', NULL, NULL, NULL, NULL)
+#2 F:\xampp\htdocs\apirest\routes\routes.php(31): include('F:\\xampp\\htdocs...')
+#3 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#4 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#5 {main}
+  thrown in F:\xampp\htdocs\apirest\models\get.model.php on line 14
+[28-Mar-2024 09:55:36 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'libros.libre' doesn't exist in F:\xampp\htdocs\apirest\models\get.model.php:367
+Stack trace:
+#0 F:\xampp\htdocs\apirest\models\get.model.php(367): PDOStatement->execute()
+#1 F:\xampp\htdocs\apirest\controllers\get.controller.php(63): GetModel::getRelDataSearch('libre,autor', 'autor,autor', '*', 'nombre', 'isa', NULL, NULL, NULL, NULL)
+#2 F:\xampp\htdocs\apirest\routes\services\get.php(65): GetController::getRelDataSearch('libre,autor', 'autor,autor', '*', 'nombre', 'isa', NULL, NULL, NULL, NULL)
+#3 F:\xampp\htdocs\apirest\routes\routes.php(31): include('F:\\xampp\\htdocs...')
+#4 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#5 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#6 {main}
+  thrown in F:\xampp\htdocs\apirest\models\get.model.php on line 367
+[28-Mar-2024 09:59:22 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'date_created_product' in 'where clause' in F:\xampp\htdocs\apirest\models\get.model.php:431
+Stack trace:
+#0 F:\xampp\htdocs\apirest\models\get.model.php(431): PDOStatement->execute()
+#1 F:\xampp\htdocs\apirest\controllers\get.controller.php(73): GetModel::getDataRange('libro', '*', 'date_created_pr...', '2021-01-01', '2021-04-30', NULL, NULL, NULL, NULL, 'id', '1,2')
+#2 F:\xampp\htdocs\apirest\routes\services\get.php(71): GetController::getDataRange('libro', '*', 'date_created_pr...', '2021-01-01', '2021-04-30', NULL, NULL, NULL, NULL, 'id', '1,2')
+#3 F:\xampp\htdocs\apirest\routes\routes.php(31): include('F:\\xampp\\htdocs...')
+#4 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#5 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#6 {main}
+  thrown in F:\xampp\htdocs\apirest\models\get.model.php on line 431
+[28-Mar-2024 10:36:47 Europe/Berlin] PHP Warning:  Array to string conversion in F:\xampp\htdocs\apirest\models\get.model.php on line 64
+[28-Mar-2024 10:37:37 Europe/Berlin] PHP Warning:  Array to string conversion in F:\xampp\htdocs\apirest\models\get.model.php on line 64
+[28-Mar-2024 10:56:25 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in F:\xampp\htdocs\apirest\models\get.model.php on line 266 and exactly 2 expected in F:\xampp\htdocs\apirest\models\connection.php:45
+Stack trace:
+#0 F:\xampp\htdocs\apirest\models\get.model.php(266): Connection::getColumnsData('libro')
+#1 F:\xampp\htdocs\apirest\controllers\get.controller.php(53): GetModel::getDataSearch('libro', '*', 'titulo', 'com', NULL, NULL, NULL, NULL)
+#2 F:\xampp\htdocs\apirest\routes\services\get.php(59): GetController::getDataSearch('libro', '*', 'titulo', 'com', NULL, NULL, NULL, NULL)
+#3 F:\xampp\htdocs\apirest\routes\routes.php(31): include('F:\\xampp\\htdocs...')
+#4 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#5 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#6 {main}
+  thrown in F:\xampp\htdocs\apirest\models\connection.php on line 45
+[28-Mar-2024 10:56:59 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in F:\xampp\htdocs\apirest\models\get.model.php on line 266 and exactly 2 expected in F:\xampp\htdocs\apirest\models\connection.php:45
+Stack trace:
+#0 F:\xampp\htdocs\apirest\models\get.model.php(266): Connection::getColumnsData('libro')
+#1 F:\xampp\htdocs\apirest\controllers\get.controller.php(53): GetModel::getDataSearch('libro', '*', 'titulo', 'com', NULL, NULL, NULL, NULL)
+#2 F:\xampp\htdocs\apirest\routes\services\get.php(59): GetController::getDataSearch('libro', '*', 'titulo', 'com', NULL, NULL, NULL, NULL)
+#3 F:\xampp\htdocs\apirest\routes\routes.php(31): include('F:\\xampp\\htdocs...')
+#4 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#5 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#6 {main}
+  thrown in F:\xampp\htdocs\apirest\models\connection.php on line 45
+[28-Mar-2024 10:57:07 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in F:\xampp\htdocs\apirest\models\get.model.php on line 266 and exactly 2 expected in F:\xampp\htdocs\apirest\models\connection.php:45
+Stack trace:
+#0 F:\xampp\htdocs\apirest\models\get.model.php(266): Connection::getColumnsData('libro')
+#1 F:\xampp\htdocs\apirest\controllers\get.controller.php(53): GetModel::getDataSearch('libro', '*', 'titulo,id', 'com_1', NULL, NULL, NULL, NULL)
+#2 F:\xampp\htdocs\apirest\routes\services\get.php(59): GetController::getDataSearch('libro', '*', 'titulo,id', 'com_1', NULL, NULL, NULL, NULL)
+#3 F:\xampp\htdocs\apirest\routes\routes.php(31): include('F:\\xampp\\htdocs...')
+#4 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#5 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#6 {main}
+  thrown in F:\xampp\htdocs\apirest\models\connection.php on line 45
+[28-Mar-2024 10:58:59 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Connection::getColumnsData(), 1 passed in F:\xampp\htdocs\apirest\models\get.model.php on line 290 and exactly 2 expected in F:\xampp\htdocs\apirest\models\connection.php:45
+Stack trace:
+#0 F:\xampp\htdocs\apirest\models\get.model.php(290): Connection::getColumnsData('libro')
+#1 F:\xampp\htdocs\apirest\controllers\get.controller.php(53): GetModel::getDataSearch('libro', '*', 'titulo,id', 'com_1', NULL, NULL, NULL, NULL)
+#2 F:\xampp\htdocs\apirest\routes\services\get.php(59): GetController::getDataSearch('libro', '*', 'titulo,id', 'com_1', NULL, NULL, NULL, NULL)
+#3 F:\xampp\htdocs\apirest\routes\routes.php(31): include('F:\\xampp\\htdocs...')
+#4 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#5 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#6 {main}
+  thrown in F:\xampp\htdocs\apirest\models\connection.php on line 45

@@ -11,6 +11,13 @@ class GetModel{
 
     static public function getData($table, $select, $orderBy, $orderMode, $startAt, $endAt){
 
+        // Validar existencia de la tabla y de las columnas
+
+        $selectArray = explode(",",$select);
+        if(empty(Connection::getColumnsData($table,$selectArray))){
+            return null;
+        }
+
         // Sin ordenar y limitar datos
 
         $sql = "SELECT $select FROM $table";
@@ -35,7 +42,14 @@ class GetModel{
 
         $stmt =  Connection::connect()->prepare($sql);
 
-        $stmt -> execute();
+        try{
+
+            $stmt -> execute();
+
+        }catch(PDOException $Exception){
+            
+            return null;
+        }
 
         // Utilizamos PDO FETCH_CLASS como argumente para que nos devuelva objetos en vez de indices que seria sin poner ningún argumento a fetchAll
         return $stmt -> fetchAll(PDO::FETCH_CLASS);
@@ -44,6 +58,21 @@ class GetModel{
     // PETICIONES GET CON FILTROS, creamos dos arrays que cogen la URL, la despiezan en caso de ser necesario y crean la sentencia.
 
     static public function getDataFilter($table, $select, $linkTo, $equalTo, $orderBy, $orderMode, $startAt, $endAt){
+
+        // Validar existencia de la tabla y de las columnas
+
+        $linkToArray = explode(",",$linkTo); // Separamos las columnas del WHERE mediante una ,
+        $selectArray = explode(",",$select);
+
+        foreach($linkToArray as $key => $value){
+            array_push($selectArray, $value);
+        }
+
+        $selectArray = array_unique($selectArray);
+
+        if(empty(Connection::getColumnsData($table,$selectArray))){
+        return null;
+        }
 
         $linkToArray = explode(",",$linkTo); // Separamos las columnas del WHERE mediante una ,
         $equalToArray = explode("_",$equalTo); // Separamos los valores de las columnas a buscar por un guión bajo _
@@ -86,7 +115,14 @@ class GetModel{
             $stmt -> bindParam(":".$value, $equalToArray[$key], PDO::PARAM_STR);
         }
 
-        $stmt -> execute();
+        try{
+
+            $stmt -> execute();
+
+        }catch(PDOException $Exception){
+            
+            return null;
+        }
 
         // Utilizamos PDO FETCH_CLASS como argumente para que nos devuelva objetos en vez de indices que seria sin poner ningún argumento a fetchAll
         return $stmt -> fetchAll(PDO::FETCH_CLASS);
@@ -96,7 +132,6 @@ class GetModel{
 
     static public function getRelData($rel, $type, $select, $orderBy, $orderMode, $startAt, $endAt){
 
-
         $relArray = explode(",",$rel); // Separamos tablas de la URL mediante coma
         $typeArray = explode(",",$type); // Separamos tipos de la URL mediante coma
 
@@ -105,6 +140,12 @@ class GetModel{
         if(count($relArray)>1){
 
             foreach ($relArray as $key => $value) {
+
+                // Validar existencia de la tabla
+
+                if(empty(Connection::getColumnsData($value,["*"]))){
+                return null;
+                }
 
                 if($key > 0){
 
@@ -136,7 +177,14 @@ class GetModel{
 
         $stmt =  Connection::connect()->prepare($sql);
 
-        $stmt -> execute();
+        try{
+
+            $stmt -> execute();
+
+        }catch(PDOException $Exception){
+
+            return null;
+        }
 
         // Utilizamos PDO FETCH_CLASS como argumento para que nos devuelva objetos en vez de indices que seria sin poner ningún argumento a fetchAll
 
@@ -151,13 +199,13 @@ class GetModel{
     static public function getRelDataFilter($rel, $type, $select, $linkTo, $equalTo, $orderBy, $orderMode, $startAt, $endAt){
 
         /* ----ORGANIZAMOS LOS FILTROS---- */
-
         $linkToArray = explode(",",$linkTo); // Separamos las columnas del WHERE mediante una ,
         $equalToArray = explode("_",$equalTo); // Separamos los valores de las columnas a buscar por un guión bajo _
         $linkToText ="";
 
         if(count($linkToArray)>1){
             foreach ($linkToArray as $key => $value) {
+                
                 if($key > 0){
                     $linkToText .= "AND ".$value." = :".$value." ";
                 }
@@ -174,6 +222,12 @@ class GetModel{
         if(count($relArray)>1){
 
             foreach ($relArray as $key => $value) {
+
+                // Validar existencia de la tabla
+
+                if(empty(Connection::getColumnsData($value,["*"]))){
+                return null;
+                }
 
                 if($key > 0){
 
@@ -209,7 +263,14 @@ class GetModel{
             $stmt -> bindParam(":".$value, $equalToArray[$key], PDO::PARAM_STR);
         }
 
-        $stmt -> execute();
+        try{
+
+            $stmt -> execute();
+
+        }catch(PDOException $Exception){
+            
+            return null;
+        }
 
         // Utilizamos PDO FETCH_CLASS como argumente para que nos devuelva objetos en vez de indices que seria sin poner ningún argumento a fetchAll
         return $stmt -> fetchAll(PDO::FETCH_CLASS);
@@ -223,7 +284,19 @@ class GetModel{
 
     static public function getDataSearch($table, $select, $linkTo, $search, $orderBy, $orderMode, $startAt, $endAt){
 
+        // Validar existencia de la tabla
         $linkToArray = explode(",",$linkTo); // Separamos las columnas del WHERE mediante una ,
+        $selectArray = explode(",",$select);
+
+        foreach($linkToArray as $key => $value){
+            array_push($selectArray, $value);
+        }
+
+        $selectArray = array_unique($selectArray);
+        if(empty(Connection::getColumnsData($table,$selectArray))){
+        return null;
+        }
+
         $searchArray = explode("_",$search); // Separamos los valores de las columnas a buscar por un guión bajo _
         $linkToText ="";
 
@@ -266,7 +339,14 @@ class GetModel{
             }
         }
 
-        $stmt -> execute();
+        try{
+
+            $stmt -> execute();
+
+        }catch(PDOException $Exception){
+            
+            return null;
+        }
 
 
         return $stmt -> fetchAll(PDO::FETCH_CLASS);
@@ -278,12 +358,13 @@ class GetModel{
 
         /* ----ORGANIZAMOS LOS FILTROS---- */
 
-        $linkToArray = explode(",",$linkTo); // Separamos las columnas del WHERE mediante una ,
+        $linkToArray = explode(",",$linkTo);
         $searchArray = explode("_",$search); // Separamos los valores de las columnas a buscar por un guión bajo _
         $linkToText ="";
 
         if(count($linkToArray)>1){
             foreach ($linkToArray as $key => $value) {
+
                 if($key > 0){
                     $linkToText .= "AND ".$value." = :".$value." ";
                 }
@@ -300,6 +381,12 @@ class GetModel{
         if(count($relArray)>1){
 
             foreach ($relArray as $key => $value) {
+
+                // Validar existencia de la tabla
+
+                if(empty(Connection::getColumnsData($value,["*"]))){
+                    return null;
+                    }
 
                 if($key > 0){
 
@@ -340,7 +427,14 @@ class GetModel{
             }
         }
 
-        $stmt -> execute();
+        try{
+
+            $stmt -> execute();
+
+        }catch(PDOException $Exception){
+            
+            return null;
+        }
 
 
 
@@ -354,6 +448,30 @@ class GetModel{
     //PETICIÓN GET PARA SELECCIÓN DE RANGOS
 
     static public function getDataRange($table, $select, $linkTo, $between1, $between2, $orderBy, $orderMode, $startAt, $endAt, $filterTo, $inTo){
+
+        // VALIDAMOS EXISTENCIA DE LA TABLA Y DE LAS COLUMNAS
+        
+        $linkToArray = explode(",",$linkTo); 
+        if($filterTo != null){
+            $filterToArray = explode(",",$filterTo);
+        }else{
+            $filterToArray = array();
+        }
+        $selectArray = explode(",",$select);
+        
+        foreach($linkToArray as $key => $value){
+            array_push($selectArray, $value);
+                }
+        foreach($filterToArray as $key => $value){
+            array_push($selectArray, $value);
+                }
+        
+        $selectArray = array_unique($selectArray);
+
+        if(empty(Connection::getColumnsData($table,$selectArray))){
+            return null;
+        }
+
 
         $filter = "";
 
@@ -384,7 +502,14 @@ class GetModel{
 
         $stmt =  Connection::connect()->prepare($sql);
 
-        $stmt -> execute();
+        try{
+
+            $stmt -> execute();
+
+        }catch(PDOException $Exception){
+            
+            return null;
+        }
 
         // Utilizamos PDO FETCH_CLASS como argumente para que nos devuelva objetos en vez de indices que seria sin poner ningún argumento a fetchAll
         return $stmt -> fetchAll(PDO::FETCH_CLASS);
@@ -393,6 +518,10 @@ class GetModel{
         //PETICIÓN GET PARA SELECCIÓN DE RANGOS CON RELACIONES
 
         static public function getRelDataRange($rel, $type, $select, $linkTo, $between1, $between2, $orderBy, $orderMode, $startAt, $endAt, $filterTo, $inTo){
+
+            //  Validar existencia de la tabla y de las columnas
+
+            $linkToArray = explode(",",$linkTo); 
 
             $filter = "";
     
@@ -407,6 +536,12 @@ class GetModel{
             if(count($relArray)>1){
     
                 foreach ($relArray as $key => $value) {
+
+                    // Validar existencia de la tabla
+
+                    if(empty(Connection::getColumnsData($value, ["*"]))){
+                    return null;
+                    }
     
                     if($key > 0){
     
@@ -437,7 +572,14 @@ class GetModel{
     
             $stmt =  Connection::connect()->prepare($sql);
     
-            $stmt -> execute();
+            try{
+
+                $stmt -> execute();
+    
+            }catch(PDOException $Exception){
+                
+                return null;
+            }
     
             // Utilizamos PDO FETCH_CLASS como argumente para que nos devuelva objetos en vez de indices que seria sin poner ningún argumento a fetchAll
             return $stmt -> fetchAll(PDO::FETCH_CLASS);
