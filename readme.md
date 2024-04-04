@@ -140,3 +140,19 @@ y añadimos de nuevo
 #### rel y type
 
 apirest.com/relations?rel=libro,autor&type=autor,autor&select=*&between1=2021-01-01&between2=2021-04-30&linkTo=date_created_product&filterTo=id&inTo=1,2
+
+## SERVICIO POST - AÑADIR REGISTROS
+
+Añadidos registros dinámicos 
+Recogeremos en dos variables el nombre de las columnas y el valor de cada una de ellas. Separandolas por un lado las columnas y otro los valores y utilizando una
+coma para su separación. 
+
+Y en caso de los valores utilizamos los : antes del mismo nombre de la columna para poder diferenciarlas.
+
+## SERVICIO HTTP DE TIPO PUT - MODIFICAR
+
+Modificaremos mediante el id, pudiendo especificar que columna id "nameId" es la seleccionada.
+
+Ejemplo de ruta - utilizando nameId y id para poder identificar el servicio PUT
+
+__apirest.com/libro?id=1&nameId=id_autor_autor__

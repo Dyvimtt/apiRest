@@ -303,3 +303,47 @@ Stack trace:
 #5 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
 #6 {main}
   thrown in F:\xampp\htdocs\apirest\models\connection.php on line 45
+[04-Apr-2024 12:29:51 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function printr() in F:\xampp\htdocs\apirest\routes\services\post.php:3
+Stack trace:
+#0 F:\xampp\htdocs\apirest\routes\routes.php(41): include()
+#1 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#2 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#3 {main}
+  thrown in F:\xampp\htdocs\apirest\routes\services\post.php on line 3
+[04-Apr-2024 12:30:58 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function printr() in F:\xampp\htdocs\apirest\routes\services\post.php:3
+Stack trace:
+#0 F:\xampp\htdocs\apirest\routes\routes.php(41): include()
+#1 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#2 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#3 {main}
+  thrown in F:\xampp\htdocs\apirest\routes\services\post.php on line 3
+[04-Apr-2024 12:31:00 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function printr() in F:\xampp\htdocs\apirest\routes\services\post.php:3
+Stack trace:
+#0 F:\xampp\htdocs\apirest\routes\routes.php(41): include()
+#1 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#2 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#3 {main}
+  thrown in F:\xampp\htdocs\apirest\routes\services\post.php on line 3
+[04-Apr-2024 12:38:32 Europe/Berlin] PHP Warning:  Undefined variable $columns in F:\xampp\htdocs\apirest\routes\services\post.php on line 11
+[04-Apr-2024 12:38:32 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in F:\xampp\htdocs\apirest\models\connection.php on line 72
+[04-Apr-2024 12:38:32 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: in_array(): Argument #2 ($haystack) must be of type array, null given in F:\xampp\htdocs\apirest\models\connection.php:84
+Stack trace:
+#0 F:\xampp\htdocs\apirest\models\connection.php(84): in_array('id', NULL)
+#1 F:\xampp\htdocs\apirest\routes\services\post.php(11): Connection::getColumnsData('libro', NULL)
+#2 F:\xampp\htdocs\apirest\routes\routes.php(43): include('F:\\xampp\\htdocs...')
+#3 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#4 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#5 {main}
+  thrown in F:\xampp\htdocs\apirest\models\connection.php on line 84
+[04-Apr-2024 12:57:07 Europe/Berlin] PHP Parse error:  syntax error, unexpected token "if" in F:\xampp\htdocs\apirest\routes\services\post.php on line 6
+[04-Apr-2024 12:57:19 Europe/Berlin] PHP Parse error:  syntax error, unexpected token "if" in F:\xampp\htdocs\apirest\routes\services\post.php on line 6
+[04-Apr-2024 12:57:25 Europe/Berlin] PHP Parse error:  syntax error, unexpected token "if" in F:\xampp\htdocs\apirest\routes\services\post.php on line 6
+[04-Apr-2024 16:00:00 Europe/Berlin] PHP Warning:  Undefined variable $columns in F:\xampp\htdocs\apirest\models\post.model.php on line 15
+[04-Apr-2024 16:04:10 Europe/Berlin] PHP Warning:  Undefined array key 0 in F:\xampp\htdocs\apirest\models\connection.php on line 72
+[04-Apr-2024 17:39:27 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "PutController" not found in F:\xampp\htdocs\apirest\routes\services\put.php:44
+Stack trace:
+#0 F:\xampp\htdocs\apirest\routes\routes.php(52): include()
+#1 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#2 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#3 {main}
+  thrown in F:\xampp\htdocs\apirest\routes\services\put.php on line 44

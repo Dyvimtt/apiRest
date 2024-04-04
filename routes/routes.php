@@ -22,6 +22,8 @@
 
     if(count($routesArray) == 1 && isset($_SERVER['REQUEST_METHOD'])){
 
+        $table = explode("?", $routesArray[1])[0];
+
         /*=================
         Peticiones GET
         ==============*/
@@ -38,12 +40,7 @@
 
         if($_SERVER['REQUEST_METHOD']== "POST"){
             
-            $json = array(
-                'status' => 200,
-                'result' => 'Solicitud POST'
-            ); 
-            
-            echo json_encode($json, http_response_code($json['status']));
+            include "services/post.php";
         }
 
         /*=================
@@ -52,12 +49,7 @@
 
         if($_SERVER['REQUEST_METHOD']== "PUT"){
             
-            $json = array(
-                'status' => 200,
-                'result' => 'Solicitud PUT'
-            ); 
-            
-            echo json_encode($json, http_response_code($json['status']));
+            include "services/put.php";
         }
 
         /*=================
