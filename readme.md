@@ -156,3 +156,13 @@ Modificaremos mediante el id, pudiendo especificar que columna id "nameId" es la
 Ejemplo de ruta - utilizando nameId y id para poder identificar el servicio PUT
 
 __apirest.com/libro?id=1&nameId=id_autor_autor__
+
+![alt text](image-3.png)
+
+![alt text](image-4.png)
+
+## SERVICIO DELETE - BORRAR REGISTROS
+
+La ruta que utilizamos es la siguiente, para ello solo debemos pasarle el nombre de tabla, el nombre del id y el número de id a borrar.
+
+apirest.com/libro?nameId=id&id=20

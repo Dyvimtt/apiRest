@@ -1,5 +1,6 @@
 <?php 
 
+
     class Connection{
 
         /*===================
@@ -7,7 +8,7 @@
         ====================*/
             static public function infoDatabase(){
                 $infoDB = array(
-                    "database"=>"libros",
+                    "database"=>"pruebasproyecto",
                     "user" => "root",
                     "pass" => ""
                 );
@@ -88,5 +89,27 @@
 
             }
         }
+
+        /*==================================================
+        Generar token de autenticacion por email
+        ===================================================*/
+
+        static public function jwt($id, $email){
+
+            $time = time();
+            $token = array(
+                "iat" => $time, //Tiempo en el que inicia el token
+                "exp" => $time + (60*60*24*7), // Tiempo de expiracion del token (Una semana)
+                "data" => [
+                    "id" => $id,
+                    "email" => $email
+                ]
+
+            );
+
+            return $token;
+
+        }
+
     }
 ?>

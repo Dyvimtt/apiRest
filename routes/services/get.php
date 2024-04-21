@@ -7,7 +7,6 @@
     /* Recogemos la ruta que nos pasan por el método GET y utilizamos explode para separar la ruta que nos envía y coger solo la parte que hay antes del interrogante
      donde pasaremos los parámetros para hacer consultas específicas. */
 
-    $table = explode("?", $routesArray[1])[0];
 
     // Para pasar un parametro específico por url de tipo get hay que añadir un ? entre la tabla y lo que queremos consultar.
     // Operador de comparación si no viene ningún valor en la variable será igual a asterisco.

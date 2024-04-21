@@ -27,10 +27,33 @@ if(isset($_POST)){
         return;
     }
 
-    //SOLICITAMOS RESPUESTA DEL CONTROLADOR PARA CREAR DATOS
+
+
+    //PETICIÓN POST PARA EL REGISTRO DE USUARIOS
 
     $response = new PostController();
-    $response -> postData($table,$_POST);
+
+    if(isset($_GET["register"])&&$_GET["register"]==true){
+
+        $suffix= $_GET["suffix"] ?? "user";
+
+        $response -> postRegister($table,$_POST,$suffix);
+
+    //PETICIÓN POST PARA EL LOGIN DEL USUARIO
+
+
+    }else if(isset($_GET["login"])&&$_GET["login"]==true){
+
+        $suffix= $_GET["suffix"] ?? "user";
+
+        $response -> postLogin($table,$_POST,$suffix);
+
+    }else{
+
+        //SOLICITAMOS RESPUESTA DEL CONTROLADOR PARA CREAR DATOS
+
+        $response -> postData($table,$_POST);
+    }
 
 
 }

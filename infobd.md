@@ -23,14 +23,15 @@ Creamos en documentos una tabla con muchos campos que no sean obligatorios y con
 - __first_name__    VARCHAR(30)
 - __second_name__ VARCHAR(30)
 - __DNI__   VARCHAR(30) UNIQUE
-- __email__ VARCHAR(50)
+- __email_employee__ VARCHAR(50) UNIQUE
 - __phone__ INT
-- __login_name__ VARCHAR(30) UNIQUE
-- __password__ VARCHAR(50)
+- __password_employee__ VARCHAR(50)
 - __role__ ENUM ("employee","manager","admin")
 - __hire_date__ DATE
 - __uploaded_at__ TIMESTAMP - DEFAULT - CURRENT TIMESTAMP
 - __uploaded_by__ VARCHAR(30)
+- __token_user__ VARCHAR(100)
+- __token_exp_user__ VARCHAR(100)
 
 #### - documents
 
@@ -39,6 +40,7 @@ Creamos en documentos una tabla con muchos campos que no sean obligatorios y con
 - __id_supplier__ INT FOREIGN KEY (suppliers)
 - __id_project__ INT FOREIGN KEY (projects)
 - __type__ ENUM("invoice","document","income")
+- __document_name__ VARCHAR(50)
 - __due_date__ DATE
 - __num_invoice__ INT UNIQUE
 - __paid__ BOOLEAN

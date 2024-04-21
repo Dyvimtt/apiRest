@@ -3,13 +3,13 @@
 require_once "connection.php";
 require_once "get.model.php";
 
-class PutModel{
+class DeleteModel{
 
         /*==========================================
-        Petición PUT para editar datos de forma dinámica
+        Petición DELETE para eliminar datos de forma dinámica
         ==========================================*/
 
-    static public function putData($table,$data,$id,$nameId){
+    static public function deleteData($table,$id,$nameId){
 
         /*==========================================
         Validar el Id para asegurarnos de que existe.
@@ -25,31 +25,16 @@ class PutModel{
         }
 
         /*==========================================
-        Actualizamos registros.
+        Eliminamos registros.
         ==========================================*/
 
-        $set= "";
 
-        foreach($data as $key => $value){
-            $set .= $key." = :".$key.",";
-        }
-
-        $set = substr($set, 0, -1);
-
-
-        $sql = "UPDATE $table SET $set WHERE $nameId = :$nameId";
+        $sql = "DELETE FROM $table WHERE $nameId = :$nameId";
 
 
         $link = Connection::connect();
         $stmt = $link -> prepare($sql);
 
-        //PREPARAMOS EL SET
-
-        foreach($data as $key => $value){
-
-            $stmt->bindParam(":".$key, $data[$key], PDO::PARAM_STR);
-    
-        }
           
         //Preparamos el WHERE
 

@@ -347,3 +347,218 @@ Stack trace:
 #2 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
 #3 {main}
   thrown in F:\xampp\htdocs\apirest\routes\services\put.php on line 44
+[04-Apr-2024 18:01:41 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`libros`.`libro`, CONSTRAINT `fk_autor` FOREIGN KEY (`id_autor_autor`) REFERENCES `autor` (`id_autor`) ON DELETE CASCADE) in F:\xampp\htdocs\apirest\models\put.model.php:45
+Stack trace:
+#0 F:\xampp\htdocs\apirest\models\put.model.php(45): PDOStatement->execute()
+#1 F:\xampp\htdocs\apirest\controllers\put.controller.php(13): PutModel::putData('libro', Array, '18', 'id')
+#2 F:\xampp\htdocs\apirest\routes\services\put.php(46): PutController::putData('libro', Array, '18', 'id')
+#3 F:\xampp\htdocs\apirest\routes\routes.php(52): include('F:\\xampp\\htdocs...')
+#4 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#5 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#6 {main}
+  thrown in F:\xampp\htdocs\apirest\models\put.model.php on line 45
+[11-Apr-2024 19:43:15 Europe/Berlin] PHP Warning:  Undefined array key 0 in F:\xampp\htdocs\apirest\models\connection.php on line 72
+[11-Apr-2024 19:51:34 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method DeleteModel::putData() in F:\xampp\htdocs\apirest\controllers\delete.controller.php:13
+Stack trace:
+#0 F:\xampp\htdocs\apirest\routes\services\delete.php(31): DeleteController::deleteData('libro', '66', 'id')
+#1 F:\xampp\htdocs\apirest\routes\routes.php(61): include('F:\\xampp\\htdocs...')
+#2 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#3 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#4 {main}
+  thrown in F:\xampp\htdocs\apirest\controllers\delete.controller.php on line 13
+[11-Apr-2024 19:52:11 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method DeleteModel::putData() in F:\xampp\htdocs\apirest\controllers\delete.controller.php:13
+Stack trace:
+#0 F:\xampp\htdocs\apirest\routes\services\delete.php(31): DeleteController::deleteData('libro', '66', 'id')
+#1 F:\xampp\htdocs\apirest\routes\routes.php(61): include('F:\\xampp\\htdocs...')
+#2 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#3 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#4 {main}
+  thrown in F:\xampp\htdocs\apirest\controllers\delete.controller.php on line 13
+[16-Apr-2024 18:58:32 Europe/Berlin] PHP Parse error:  syntax error, unexpected token "public", expecting "::" in F:\xampp\htdocs\apirest\controllers\post.controller.php on line 41
+[16-Apr-2024 19:07:26 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'instructor@correo.com' for key 'email_instructor' in F:\xampp\htdocs\apirest\models\post.model.php:51
+Stack trace:
+#0 F:\xampp\htdocs\apirest\models\post.model.php(51): PDOStatement->execute()
+#1 F:\xampp\htdocs\apirest\controllers\post.controller.php(13): PostModel::postData('usuario', Array)
+#2 F:\xampp\htdocs\apirest\routes\services\post.php(46): PostController::postData('usuario', Array)
+#3 F:\xampp\htdocs\apirest\routes\routes.php(43): include('F:\\xampp\\htdocs...')
+#4 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#5 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#6 {main}
+  thrown in F:\xampp\htdocs\apirest\models\post.model.php on line 51
+[16-Apr-2024 19:07:55 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'instructor@correo.com' for key 'email_instructor' in F:\xampp\htdocs\apirest\models\post.model.php:51
+Stack trace:
+#0 F:\xampp\htdocs\apirest\models\post.model.php(51): PDOStatement->execute()
+#1 F:\xampp\htdocs\apirest\controllers\post.controller.php(13): PostModel::postData('usuario', Array)
+#2 F:\xampp\htdocs\apirest\routes\services\post.php(46): PostController::postData('usuario', Array)
+#3 F:\xampp\htdocs\apirest\routes\routes.php(43): include('F:\\xampp\\htdocs...')
+#4 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#5 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#6 {main}
+  thrown in F:\xampp\htdocs\apirest\models\post.model.php on line 51
+[16-Apr-2024 19:09:04 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'instructor@correo.com' for key 'email_instructor' in F:\xampp\htdocs\apirest\models\post.model.php:51
+Stack trace:
+#0 F:\xampp\htdocs\apirest\models\post.model.php(51): PDOStatement->execute()
+#1 F:\xampp\htdocs\apirest\controllers\post.controller.php(13): PostModel::postData('usuario', Array)
+#2 F:\xampp\htdocs\apirest\routes\services\post.php(46): PostController::postData('usuario', Array)
+#3 F:\xampp\htdocs\apirest\routes\routes.php(43): include('F:\\xampp\\htdocs...')
+#4 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#5 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#6 {main}
+  thrown in F:\xampp\htdocs\apirest\models\post.model.php on line 51
+[16-Apr-2024 19:11:06 Europe/Berlin] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'instructor2@correo.com' for key 'email_instructor' in F:\xampp\htdocs\apirest\models\post.model.php:51
+Stack trace:
+#0 F:\xampp\htdocs\apirest\models\post.model.php(51): PDOStatement->execute()
+#1 F:\xampp\htdocs\apirest\controllers\post.controller.php(31): PostModel::postData('usuario', Array)
+#2 F:\xampp\htdocs\apirest\routes\services\post.php(40): PostController::postRegister('usuario', Array, 'instructor')
+#3 F:\xampp\htdocs\apirest\routes\routes.php(43): include('F:\\xampp\\htdocs...')
+#4 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#5 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#6 {main}
+  thrown in F:\xampp\htdocs\apirest\models\post.model.php on line 51
+[16-Apr-2024 19:35:27 Europe/Berlin] PHP Warning:  Undefined property: stdClass::$id_instructor in F:\xampp\htdocs\apirest\controllers\post.controller.php on line 61
+[16-Apr-2024 19:44:23 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Firebase\JWT\JWT::encode(), 2 passed in F:\xampp\htdocs\apirest\models\connection.php on line 112 and at least 3 expected in F:\xampp\htdocs\apirest\vendor\firebase\php-jwt\src\JWT.php:199
+Stack trace:
+#0 F:\xampp\htdocs\apirest\models\connection.php(112): Firebase\JWT\JWT::encode(Array, 'dasergdfgvsrwte...')
+#1 F:\xampp\htdocs\apirest\controllers\post.controller.php(61): Connection::jwt(1, 'instructor@corr...')
+#2 F:\xampp\htdocs\apirest\routes\services\post.php(49): PostController::postLogin('usuario', Array, 'instructor')
+#3 F:\xampp\htdocs\apirest\routes\routes.php(43): include('F:\\xampp\\htdocs...')
+#4 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#5 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#6 {main}
+  thrown in F:\xampp\htdocs\apirest\vendor\firebase\php-jwt\src\JWT.php on line 199
+[16-Apr-2024 19:44:55 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Firebase\JWT\JWT::encode(), 2 passed in F:\xampp\htdocs\apirest\models\connection.php on line 112 and at least 3 expected in F:\xampp\htdocs\apirest\vendor\firebase\php-jwt\src\JWT.php:199
+Stack trace:
+#0 F:\xampp\htdocs\apirest\models\connection.php(112): Firebase\JWT\JWT::encode(Array, 'dasergdfgvsrwte...')
+#1 F:\xampp\htdocs\apirest\controllers\post.controller.php(61): Connection::jwt(1, 'instructor@corr...')
+#2 F:\xampp\htdocs\apirest\routes\services\post.php(49): PostController::postLogin('usuario', Array, 'instructor')
+#3 F:\xampp\htdocs\apirest\routes\routes.php(43): include('F:\\xampp\\htdocs...')
+#4 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#5 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#6 {main}
+  thrown in F:\xampp\htdocs\apirest\vendor\firebase\php-jwt\src\JWT.php on line 199
+[16-Apr-2024 19:55:14 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Firebase\JWT\JWT::encode(): Argument #1 ($payload) must be of type array, string given, called in F:\xampp\htdocs\apirest\controllers\post.controller.php on line 68 and defined in F:\xampp\htdocs\apirest\vendor\firebase\php-jwt\src\JWT.php:199
+Stack trace:
+#0 F:\xampp\htdocs\apirest\controllers\post.controller.php(68): Firebase\JWT\JWT::encode('eyJ0eXAiOiJKV1Q...', 'dasergdfgvsrwte...', 'HS256')
+#1 F:\xampp\htdocs\apirest\routes\services\post.php(49): PostController::postLogin('usuario', Array, 'instructor')
+#2 F:\xampp\htdocs\apirest\routes\routes.php(43): include('F:\\xampp\\htdocs...')
+#3 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#4 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#5 {main}
+  thrown in F:\xampp\htdocs\apirest\vendor\firebase\php-jwt\src\JWT.php on line 199
+[16-Apr-2024 20:00:27 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Firebase\JWT\JWT::encode(): Argument #1 ($payload) must be of type array, string given, called in F:\xampp\htdocs\apirest\controllers\post.controller.php on line 68 and defined in F:\xampp\htdocs\apirest\vendor\firebase\php-jwt\src\JWT.php:199
+Stack trace:
+#0 F:\xampp\htdocs\apirest\controllers\post.controller.php(68): Firebase\JWT\JWT::encode('eyJ0eXAiOiJKV1Q...', 'dasergdfgvsrwte...', 'HS256')
+#1 F:\xampp\htdocs\apirest\routes\services\post.php(49): PostController::postLogin('usuario', Array, 'instructor')
+#2 F:\xampp\htdocs\apirest\routes\routes.php(43): include('F:\\xampp\\htdocs...')
+#3 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#4 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#5 {main}
+  thrown in F:\xampp\htdocs\apirest\vendor\firebase\php-jwt\src\JWT.php on line 199
+[16-Apr-2024 20:04:39 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Firebase\JWT\JWT::encode(): Argument #1 ($payload) must be of type array, string given, called in F:\xampp\htdocs\apirest\controllers\post.controller.php on line 68 and defined in F:\xampp\htdocs\apirest\vendor\firebase\php-jwt\src\JWT.php:199
+Stack trace:
+#0 F:\xampp\htdocs\apirest\controllers\post.controller.php(68): Firebase\JWT\JWT::encode('eyJ0eXAiOiJKV1Q...', 'dasergdfgvsrwte...', 'HS256')
+#1 F:\xampp\htdocs\apirest\routes\services\post.php(49): PostController::postLogin('usuario', Array, 'instructor')
+#2 F:\xampp\htdocs\apirest\routes\routes.php(43): include('F:\\xampp\\htdocs...')
+#3 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#4 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#5 {main}
+  thrown in F:\xampp\htdocs\apirest\vendor\firebase\php-jwt\src\JWT.php on line 199
+[16-Apr-2024 20:04:41 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Firebase\JWT\JWT::encode(): Argument #1 ($payload) must be of type array, string given, called in F:\xampp\htdocs\apirest\controllers\post.controller.php on line 68 and defined in F:\xampp\htdocs\apirest\vendor\firebase\php-jwt\src\JWT.php:199
+Stack trace:
+#0 F:\xampp\htdocs\apirest\controllers\post.controller.php(68): Firebase\JWT\JWT::encode('eyJ0eXAiOiJKV1Q...', 'dasergdfgvsrwte...', 'HS256')
+#1 F:\xampp\htdocs\apirest\routes\services\post.php(49): PostController::postLogin('usuario', Array, 'instructor')
+#2 F:\xampp\htdocs\apirest\routes\routes.php(43): include('F:\\xampp\\htdocs...')
+#3 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#4 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#5 {main}
+  thrown in F:\xampp\htdocs\apirest\vendor\firebase\php-jwt\src\JWT.php on line 199
+[16-Apr-2024 20:05:59 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in F:\xampp\htdocs\apirest\controllers\post.controller.php:67
+Stack trace:
+#0 F:\xampp\htdocs\apirest\routes\services\post.php(49): PostController::postLogin('usuario', Array, 'instructor')
+#1 F:\xampp\htdocs\apirest\routes\routes.php(43): include('F:\\xampp\\htdocs...')
+#2 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#3 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#4 {main}
+  thrown in F:\xampp\htdocs\apirest\controllers\post.controller.php on line 67
+[16-Apr-2024 20:08:52 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in F:\xampp\htdocs\apirest\controllers\post.controller.php:67
+Stack trace:
+#0 F:\xampp\htdocs\apirest\routes\services\post.php(49): PostController::postLogin('usuario', Array, 'instructor')
+#1 F:\xampp\htdocs\apirest\routes\routes.php(43): include('F:\\xampp\\htdocs...')
+#2 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#3 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#4 {main}
+  thrown in F:\xampp\htdocs\apirest\controllers\post.controller.php on line 67
+[16-Apr-2024 20:09:26 Europe/Berlin] PHP Warning:  Undefined variable $algorithm in F:\xampp\htdocs\apirest\controllers\post.controller.php on line 67
+[16-Apr-2024 20:09:26 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Firebase\JWT\JWT::encode(): Argument #1 ($payload) must be of type array, string given, called in F:\xampp\htdocs\apirest\controllers\post.controller.php on line 67 and defined in F:\xampp\htdocs\apirest\vendor\firebase\php-jwt\src\JWT.php:199
+Stack trace:
+#0 F:\xampp\htdocs\apirest\controllers\post.controller.php(67): Firebase\JWT\JWT::encode('eyJ0eXAiOiJKV1Q...', 'dasergdfgvsrwte...', NULL)
+#1 F:\xampp\htdocs\apirest\routes\services\post.php(49): PostController::postLogin('usuario', Array, 'instructor')
+#2 F:\xampp\htdocs\apirest\routes\routes.php(43): include('F:\\xampp\\htdocs...')
+#3 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#4 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#5 {main}
+  thrown in F:\xampp\htdocs\apirest\vendor\firebase\php-jwt\src\JWT.php on line 199
+[16-Apr-2024 20:10:23 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Firebase\JWT\JWT::encode(): Argument #1 ($payload) must be of type array, string given, called in F:\xampp\htdocs\apirest\controllers\post.controller.php on line 69 and defined in F:\xampp\htdocs\apirest\vendor\firebase\php-jwt\src\JWT.php:199
+Stack trace:
+#0 F:\xampp\htdocs\apirest\controllers\post.controller.php(69): Firebase\JWT\JWT::encode('eyJ0eXAiOiJKV1Q...', 'dasergdfgvsrwte...', 'HS256')
+#1 F:\xampp\htdocs\apirest\routes\services\post.php(49): PostController::postLogin('usuario', Array, 'instructor')
+#2 F:\xampp\htdocs\apirest\routes\routes.php(43): include('F:\\xampp\\htdocs...')
+#3 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#4 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#5 {main}
+  thrown in F:\xampp\htdocs\apirest\vendor\firebase\php-jwt\src\JWT.php on line 199
+[16-Apr-2024 20:15:11 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Firebase\JWT\JWT::encode(): Argument #1 ($payload) must be of type array, string given, called in F:\xampp\htdocs\apirest\controllers\post.controller.php on line 69 and defined in F:\xampp\htdocs\apirest\vendor\firebase\php-jwt\src\JWT.php:199
+Stack trace:
+#0 F:\xampp\htdocs\apirest\controllers\post.controller.php(69): Firebase\JWT\JWT::encode('eyJ0eXAiOiJKV1Q...', 'dasergdfgvsrwte...', 'HS256')
+#1 F:\xampp\htdocs\apirest\routes\services\post.php(49): PostController::postLogin('usuario', Array, 'instructor')
+#2 F:\xampp\htdocs\apirest\routes\routes.php(43): include('F:\\xampp\\htdocs...')
+#3 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#4 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#5 {main}
+  thrown in F:\xampp\htdocs\apirest\vendor\firebase\php-jwt\src\JWT.php on line 199
+[16-Apr-2024 20:17:48 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in F:\xampp\htdocs\apirest\controllers\post.controller.php:69
+Stack trace:
+#0 F:\xampp\htdocs\apirest\routes\services\post.php(49): PostController::postLogin('usuario', Array, 'instructor')
+#1 F:\xampp\htdocs\apirest\routes\routes.php(43): include('F:\\xampp\\htdocs...')
+#2 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#3 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#4 {main}
+  thrown in F:\xampp\htdocs\apirest\controllers\post.controller.php on line 69
+[16-Apr-2024 20:19:34 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Firebase\JWT\JWT::encode(): Argument #1 ($payload) must be of type array, string given, called in F:\xampp\htdocs\apirest\controllers\post.controller.php on line 69 and defined in F:\xampp\htdocs\apirest\vendor\firebase\php-jwt\src\JWT.php:199
+Stack trace:
+#0 F:\xampp\htdocs\apirest\controllers\post.controller.php(69): Firebase\JWT\JWT::encode('eyJ0eXAiOiJKV1Q...', 'dasergdfgvsrwte...', 'HS256')
+#1 F:\xampp\htdocs\apirest\routes\services\post.php(49): PostController::postLogin('usuario', Array, 'instructor')
+#2 F:\xampp\htdocs\apirest\routes\routes.php(43): include('F:\\xampp\\htdocs...')
+#3 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#4 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#5 {main}
+  thrown in F:\xampp\htdocs\apirest\vendor\firebase\php-jwt\src\JWT.php on line 199
+[16-Apr-2024 20:20:09 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Firebase\JWT\JWT::encode(): Argument #1 ($payload) must be of type array, string given, called in F:\xampp\htdocs\apirest\controllers\post.controller.php on line 69 and defined in F:\xampp\htdocs\apirest\vendor\firebase\php-jwt\src\JWT.php:199
+Stack trace:
+#0 F:\xampp\htdocs\apirest\controllers\post.controller.php(69): Firebase\JWT\JWT::encode('eyJ0eXAiOiJKV1Q...', 'dasergdfgvsrwte...', 'HS256')
+#1 F:\xampp\htdocs\apirest\routes\services\post.php(49): PostController::postLogin('usuario', Array, 'instructor')
+#2 F:\xampp\htdocs\apirest\routes\routes.php(43): include('F:\\xampp\\htdocs...')
+#3 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#4 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#5 {main}
+  thrown in F:\xampp\htdocs\apirest\vendor\firebase\php-jwt\src\JWT.php on line 199
+[16-Apr-2024 20:21:00 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Firebase\JWT\JWT::encode(): Argument #1 ($payload) must be of type array, string given, called in F:\xampp\htdocs\apirest\controllers\post.controller.php on line 67 and defined in F:\xampp\htdocs\apirest\vendor\firebase\php-jwt\src\JWT.php:199
+Stack trace:
+#0 F:\xampp\htdocs\apirest\controllers\post.controller.php(67): Firebase\JWT\JWT::encode('eyJ0eXAiOiJKV1Q...', 'dasergdfgvsrwte...')
+#1 F:\xampp\htdocs\apirest\routes\services\post.php(49): PostController::postLogin('usuario', Array, 'instructor')
+#2 F:\xampp\htdocs\apirest\routes\routes.php(43): include('F:\\xampp\\htdocs...')
+#3 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#4 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#5 {main}
+  thrown in F:\xampp\htdocs\apirest\vendor\firebase\php-jwt\src\JWT.php on line 199
+[16-Apr-2024 20:22:30 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Firebase\JWT\JWT::encode(): Argument #1 ($payload) must be of type array, string given, called in F:\xampp\htdocs\apirest\controllers\post.controller.php on line 69 and defined in F:\xampp\htdocs\apirest\vendor\firebase\php-jwt\src\JWT.php:199
+Stack trace:
+#0 F:\xampp\htdocs\apirest\controllers\post.controller.php(69): Firebase\JWT\JWT::encode('eyJ0eXAiOiJKV1Q...', 'dasergdfgvsrwte...', 'HS256')
+#1 F:\xampp\htdocs\apirest\routes\services\post.php(49): PostController::postLogin('usuario', Array, 'instructor')
+#2 F:\xampp\htdocs\apirest\routes\routes.php(43): include('F:\\xampp\\htdocs...')
+#3 F:\xampp\htdocs\apirest\controllers\routes.controller.php(7): include('F:\\xampp\\htdocs...')
+#4 F:\xampp\htdocs\apirest\index.php(21): RoutesController->index()
+#5 {main}
+  thrown in F:\xampp\htdocs\apirest\vendor\firebase\php-jwt\src\JWT.php on line 199
+[16-Apr-2024 20:32:28 Europe/Berlin] PHP Warning:  A non-numeric value encountered in F:\xampp\htdocs\apirest\models\connection.php on line 101
+[16-Apr-2024 20:49:15 Europe/Berlin] PHP Warning:  Undefined variable $suffix in F:\xampp\htdocs\apirest\controllers\post.controller.php on line 128
