@@ -45,9 +45,58 @@ if(isset($_GET["id"]) && isset($_GET["nameId"])){
         return;
     }
 
-    /*==========================================
-    Solicitamos respuesta del controlador para modificar los datos
-    ==========================================*/
-    $response = new PutController();
-    $response -> putData($table,$data,$_GET['id'],$_GET['nameId']);
+    //PETICIÓN PUT PARA USUARIOS AUTORIZADOS
+
+    if(isset($_GET["token"])){
+
+        $tableToken = $_GET["table"] ?? "employees";
+        $suffix = $_GET["suffix"] ?? "employee";
+
+
+
+        $validate = Connection::tokenValidate($_GET["token"], $tableToken, $suffix);
+
+        if($validate == "ok"){
+
+            /*==========================================
+            Solicitamos respuesta del controlador para modificar los datos
+            ==========================================*/
+            $response = new PutController();
+            $response -> putData($table,$data,$_GET['id'],$_GET['nameId']);
+
+        }
+        if($validate == "expirado"){
+
+            $json = array(
+                'status' => 303,
+                'results' => "Error, el token ha expirado"
+            );
+            echo json_encode($json, http_response_code($json["status"]));    
+            return;
+        }
+        if($validate == "no-autorizado"){
+
+            $json = array(
+                'status' => 400,
+                'results' => "El usuario no está autorizado"
+            );
+    
+            echo json_encode($json, http_response_code($json["status"]));
+    
+            return;
+        }  
+
+    }else{
+
+        //Cuando no envía token
+
+        if($validate == "expirado"){
+            $json = array(
+                'status' => 400,
+                'results' => "Error: Se requiere autorización"
+            );    
+            echo json_encode($json, http_response_code($json["status"]));
+            return;
+        }
+    }
 }

@@ -1,4 +1,11 @@
 <?php
+
+header('Access-Control-Allow-Origin: *'); 
+header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method"); 
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE"); 
+header("Allow: GET, POST, OPTIONS, PUT, DELETE");
+
+
 require_once "models/get.model.php";
 require_once "models/post.model.php";
 require_once "models/put.model.php";
@@ -26,16 +33,16 @@ class PostController{
     Petición post para registrar usuarios
     ==========================================*/
 
-    static public function postRegister($table,$data, $suffix){
+    static public function postRegister($table, $data, $suffix) {
 
-        if(isset($data["password_".$suffix]) && $data["password_".$suffix] != null){
-            $crypt = crypt($data["password_".$suffix], '$2a$07$azybx32s23aasdg23sdfhsd$');
-            $data["password_".$suffix] = $crypt;
+        if (isset($data["password_" . $suffix]) && $data["password_" . $suffix] != null) {
 
-            $response = PostModel::postData($table,$data);
-
+            $data["password_" . $suffix] = password_hash($data["password_" . $suffix], PASSWORD_DEFAULT);
+    
+            $response = PostModel::postData($table, $data);
+    
             $return = new PostController();
-            $return -> fncResponse($response, null,$suffix);
+            $return->fncResponse($response, null, $suffix);
         }
     }
 
@@ -43,71 +50,50 @@ class PostController{
     Petición post para login de usuarios
     ==========================================*/
 
-    static public function postLogin($table, $data, $suffix){
+    static public function postLogin($table, $data, $suffix) {
 
-    /*==========================================
-    Validamos que el usuario existe en la BD por email en vez de login tenerlo en cuenta
-    ==========================================*/
-
-    $response = GetModel::getDataFilter($table, "*", "email_".$suffix, $data["email_".$suffix],null,null,null,null);
-
-        if(!empty($response)){
-
-            /*==========================================
-            Encriptamos la contraseña que viene en Data
-            ==========================================*/
-
-            $crypt = crypt($data["password_".$suffix], '$2a$07$azybx32s23aasdg23sdfhsd$');
-
-            if($response[0]->{"password_".$suffix} == $crypt){
-
-                $tokenData = Connection::jwt($response[0]->{"id_".$suffix}, $response[0]->{"email_".$suffix});
-
+        // Validamos que el usuario existe en la BD por email
+        $response = GetModel::getDataFilter($table, "*", "email_" . $suffix, $data["email_" . $suffix], null, null, null, null);
+    
+        if (!empty($response)) {
+    
+            // Verificamos la contraseña usando password_verify
+            if (password_verify($data["password_" . $suffix], $response[0]->{"password_" . $suffix})) {
+    
+                // Generar datos para el token
+                $tokenData = Connection::jwt($response[0]->{"id_" . $suffix}, $response[0]->{"email_" . $suffix});
                 $algorithm = 'HS256';
-
-                // Pasar solo los datos específicos contenidos en $tokenData
                 $jwt = JWT::encode($tokenData, "dasergdfgvsrwteyhb43", $algorithm);
-
-
-                
-            /*==========================================
-            Actualizamos la base de datos con el token del usuario
-            ==========================================*/
-
-                $data = array(
-                    "token_".$suffix => $jwt,
-                    "token_exp_".$suffix => $tokenData["exp"]
+    
+                // Preparar datos para actualizar el usuario con el nuevo token
+                $updateData = array(
+                    "token_" . $suffix => $jwt,
+                    "token_exp_" . $suffix => $tokenData["exp"]
                 );
-
-                $update = PutModel::PutData($table,$data,$response[0]->{"id_".$suffix},"id_".$suffix);
-
-                if(isset($update["comment"]) && $update["comment"] == "El proceso se ha ejecutado correctamente"){
-
-                    $response[0] -> {"tokken_".$suffix} = $jwt;
-                    $response[0] -> {"tokken_exp_".$suffix} = $tokenData["exp"];
-
+    
+                // Actualizamos la base de datos con el token del usuario
+                $update = PutModel::PutData($table, $updateData, $response[0]->{"id_" . $suffix}, "id_" . $suffix);
+    
+                if (isset($update["comment"]) && $update["comment"] == "El proceso se ha ejecutado correctamente") {
+                    $response[0]->{"token_" . $suffix} = $jwt;
+                    $response[0]->{"token_exp_" . $suffix} = $tokenData["exp"];
+    
                     $return = new PostController();
-                    $return -> fncResponse($response, null,$suffix);
-
-
+                    $return->fncResponse($response, null, $suffix);
                 }
-
-            }else{
-
+            } else {
+                // Enviar error de contraseña incorrecta
                 $response = null;
                 $return = new PostController();
-                $return -> fncResponse($response, "Password incorrecta",$suffix);
-
+                $return->fncResponse($response, "Password incorrecta", $suffix);
             }
-
-        }else{
+        } else {
+            // Enviar error si no se encuentra el usuario
             $response = null;
             $return = new PostController();
-            $return -> fncResponse($response, "No se encuentra este usuario",$suffix);
+            $return->fncResponse($response, "No se encuentra este usuario", $suffix);
         }
-
     }
-
 
 
     

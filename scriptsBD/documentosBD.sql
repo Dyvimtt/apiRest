@@ -1,0 +1,23 @@
+INSERT INTO documents (id_employee, id_supplier, id_project, type, document_name, due_date, paid, uploaded_by, attachment_url)
+VALUES
+
+(1, NULL, NULL, 'document', 'Documento_Emp_1_1', '2024-04-25', null, 'user', 'https://example.com/attachment_1_1'),
+(1, NULL, NULL, 'document', 'Documento_Emp_1_2', '2024-04-26', null, 'user', 'https://example.com/attachment_1_2'),
+(2, NULL, NULL, 'document', 'Documento_Emp_2_1', '2024-04-27', null, 'user', 'https://example.com/attachment_2_1'),
+(2, NULL, NULL, 'document', 'Documento_Emp_2_2', '2024-04-28', null, 'user', 'https://example.com/attachment_2_2'),
+(3, NULL, NULL, 'document', 'Documento_Emp_3_1', '2024-04-29', null, 'user', 'https://example.com/attachment_3_1'),
+(3, NULL, NULL, 'document', 'Documento_Emp_3_2', '2024-04-30', null, 'user', 'https://example.com/attachment_3_2'),
+(4, NULL, NULL, 'document', 'Documento_Emp_4_1', '2024-05-01', null, 'user', 'https://example.com/attachment_4_1'),
+(4, NULL, NULL, 'document', 'Documento_Emp_4_2', '2024-05-02', null, 'user', 'https://example.com/attachment_4_2'),
+(5, NULL, NULL, 'document', 'Documento_Emp_5_1', '2024-05-03', null, 'user', 'https://example.com/attachment_5_1'),
+(5, NULL, NULL, 'document', 'Documento_Emp_5_2', '2024-05-04', null, 'user', 'https://example.com/attachment_5_2'),
+(6, NULL, NULL, 'document', 'Documento_Emp_6_1', '2024-05-05', null, 'user', 'https://example.com/attachment_6_1'),
+(6, NULL, NULL, 'document', 'Documento_Emp_6_2', '2024-05-06', null, 'user', 'https://example.com/attachment_6_2'),
+(7, NULL, NULL, 'document', 'Documento_Emp_7_1', '2024-05-07', null, 'user', 'https://example.com/attachment_7_1'),
+(7, NULL, NULL, 'document', 'Documento_Emp_7_2', '2024-05-08', null, 'user', 'https://example.com/attachment_7_2'),
+(8, NULL, NULL, 'document', 'Documento_Emp_8_1', '2024-05-09', null, 'user', 'https://example.com/attachment_8_1'),
+(8, NULL, NULL, 'document', 'Documento_Emp_8_2', '2024-05-10', null, 'user', 'https://example.com/attachment_8_2'),
+(9, NULL, NULL, 'document', 'Documento_Emp_9_1', '2024-05-11', null, 'user', 'https://example.com/attachment_9_1'),
+(9, NULL, NULL, 'document', 'Documento_Emp_9_2', '2024-05-12', null, 'user', 'https://example.com/attachment_9_2'),
+(10, NULL, NULL, 'document', 'Documento_Emp_10_1', '2024-05-13', null, 'user', 'https://example.com/attachment_10_1'),
+(10, NULL, NULL, 'document', 'Documento_Emp_10_2', '2024-05-14', null, 'user', 'https://example.com/attachment_10_2'),

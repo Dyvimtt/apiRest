@@ -50,9 +50,60 @@ if(isset($_POST)){
 
     }else{
 
-        //SOLICITAMOS RESPUESTA DEL CONTROLADOR PARA CREAR DATOS
+        //PETICIÓN POST PARA USUARIOS AUTORIZADOS
 
-        $response -> postData($table,$_POST);
+        if(isset($_GET["token"])){
+
+            //Cuando no vengan en los parámetros la tabla y el suffijo mandaremos por defecto la tabla donde tenemos guardados los usuarios.
+
+            $tableToken = $_GET["table"] ?? "employees";
+            $suffix = $_GET["suffix"] ?? "employee";
+
+
+
+            $validate = Connection::tokenValidate($_GET["token"], $tableToken, $suffix);
+
+            if($validate == "ok"){
+
+
+                //SOLICITAMOS RESPUESTA DEL CONTROLADOR PARA CREAR DATOS          
+                $response -> postData($table,$_POST);
+
+
+            }
+            if($validate == "expirado"){
+
+                $json = array(
+                    'status' => 303,
+                    'results' => "Error, el token ha expirado"
+                );
+                echo json_encode($json, http_response_code($json["status"]));    
+                return;
+            }
+            if($validate == "no-autorizado"){
+
+                $json = array(
+                    'status' => 400,
+                    'results' => "El usuario no está autorizado"
+                );
+        
+                echo json_encode($json, http_response_code($json["status"]));
+        
+                return;
+            }
+
+        }else{
+            if($validate == "expirado"){
+                $json = array(
+                    'status' => 400,
+                    'results' => "Se requiere autorización"
+                );    
+                echo json_encode($json, http_response_code($json["status"]));
+                return;
+            }
+        }
+
+        
     }
 
 

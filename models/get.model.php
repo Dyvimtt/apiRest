@@ -75,7 +75,7 @@ class GetModel{
         }
 
         $linkToArray = explode(",",$linkTo); // Separamos las columnas del WHERE mediante una ,
-        $equalToArray = explode("_",$equalTo); // Separamos los valores de las columnas a buscar por un guión bajo _
+        $equalToArray = explode(",",$equalTo); // Separamos los valores de las columnas a buscar por un guión bajo _
         $linkToText ="";
 
         if(count($linkToArray)>1){
@@ -200,7 +200,7 @@ class GetModel{
 
         /* ----ORGANIZAMOS LOS FILTROS---- */
         $linkToArray = explode(",",$linkTo); // Separamos las columnas del WHERE mediante una ,
-        $equalToArray = explode("_",$equalTo); // Separamos los valores de las columnas a buscar por un guión bajo _
+        $equalToArray = explode(",",$equalTo); // Separamos los valores de las columnas a buscar por un guión bajo _
         $linkToText ="";
 
         if(count($linkToArray)>1){

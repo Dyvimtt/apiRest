@@ -1,5 +1,7 @@
 <?php 
 
+    require_once "get.model.php";
+
 
     class Connection{
 
@@ -8,9 +10,9 @@
         ====================*/
             static public function infoDatabase(){
                 $infoDB = array(
-                    "database"=>"pruebasproyecto",
-                    "user" => "root",
-                    "pass" => ""
+                    "database"=>"dyvitpmr_proyectoMIM",
+                    "user" => "dyvitpmr_admin",
+                    "pass" => "Jose123456@123456"
                 );
 
                 return $infoDB;
@@ -33,69 +35,35 @@
 
             }catch(PDOException $e){
                 die("Error: ".$e->getMessage());
-
-            }
-        
+            }   
         return $link;
-
         }
-        /*==================================================
-        Validar existencia de una tabla en la base de datos
-        ===================================================*/
 
         static public function getColumnsData($table, $columns){
 
-            /*==================================================
-            Traer el nombre de la base de datos
-            ===================================================*/
-
             $database = Connection::infoDatabase()["database"];
-
-            /*==================================================
-            Traer todas las columnas de una tabla
-            ===================================================*/
 
             $validate = Connection::connect()
             ->query("SELECT COLUMN_NAME AS item FROM information_schema.columns WHERE table_schema = '$database' AND table_name = '$table'")
             ->fetchAll(PDO::FETCH_OBJ);
 
-            /*==================================================
-            Validamos la existencia de la tabla
-            ===================================================*/
-
             if(empty($validate)){
                 return null;
             }else{
-
-                /*==================================================
-                Ajuste de solicitud a columnas globales
-                ===================================================*/
                 if($columns[0] == "*"){
                     array_shift($columns);
                 }
-
-                /*==================================================
-                Validamos la existencia de la columna
-                ===================================================*/
-
                 $sum = 0;
-
                 foreach($validate as $key => $value){
-
                     $sum += in_array($value->item, $columns);
                 }
-
                 return $sum == count($columns) ? $validate : null;
-
             }
         }
 
-        /*==================================================
-        Generar token de autenticacion por email
-        ===================================================*/
+        // Generación del token de seguridad por email
 
         static public function jwt($id, $email){
-
             $time = time();
             $token = array(
                 "iat" => $time, //Tiempo en el que inicia el token
@@ -104,12 +72,25 @@
                     "id" => $id,
                     "email" => $email
                 ]
-
             );
-
             return $token;
-
         }
 
+        // Validar token de seguridad
+
+        static public function tokenValidate($token){
+           $user = GetModel::getDataFilter($table, "token_exp_".$suffix, "token_".$suffix, $token, null, null, null, null);
+            if(!empty($user)){
+                //Validamos que el token no haya expirado.
+                $time = time();
+                if($user[0]->{"token_exp_".$suffix} > $time){
+                    return "ok";
+                }else{
+                    return "expirado";
+                }
+            }else{
+                return "no-autorizado";
+            }
+        }
     }
 ?>

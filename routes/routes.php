@@ -1,5 +1,7 @@
 <?php
 
+    require_once "models/connection.php";
+
     // Coge la parte de la variable que pasamos por URL que va a continuación de la barra
     
     $routesArray = explode('/',$_SERVER['REQUEST_URI']);
@@ -10,7 +12,7 @@
     if(empty($routesArray)){
         $json = array(
             'status' => 404,
-            'result' => 'Not found'
+            'results' => 'Not found'
         );    
         echo json_encode($json, http_response_code($json['status']));
 
@@ -23,6 +25,22 @@
     if(count($routesArray) == 1 && isset($_SERVER['REQUEST_METHOD'])){
 
         $table = explode("?", $routesArray[1])[0];
+
+        /*=================
+        Validar llave secreta
+        ==============*/
+
+        if(!isset(getallheaders()["Authorization"]) || getallheaders()["Authorization"] != Connection::apikey()){
+
+            $json = array(
+                'status' => 400,
+                'results' => 'No esta autorizado para utilizar esta aplicacion'
+            );    
+            echo json_encode($json, http_response_code($json['status']));
+    
+            return;
+
+        }
 
         /*=================
         Peticiones GET
