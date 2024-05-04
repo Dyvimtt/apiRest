@@ -10,9 +10,9 @@
         ====================*/
             static public function infoDatabase(){
                 $infoDB = array(
-                    "database"=>"dyvitpmr_proyectoMIM",
-                    "user" => "dyvitpmr_admin",
-                    "pass" => "Jose123456@123456"
+                    "database"=>"xxxx",
+                    "user" => "xxx",
+                    "pass" => "xxx"
                 );
 
                 return $infoDB;
